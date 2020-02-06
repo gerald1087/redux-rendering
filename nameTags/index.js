@@ -7,3 +7,14 @@ dispatch({ type: null }); // Here we're making a call to dispatch() - this trigg
 
 // Write DOM event listeners here, make them dispatch actions to the Redux store 
 
+const form = document.getElementById('nameForm');
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const newName = form.elements['name'].value;
+    console.log(newName);
+    dispatch({
+        type: 'ADD_NAME',
+        name: newName
+    });
+})
